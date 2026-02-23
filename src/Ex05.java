@@ -9,14 +9,32 @@ public class Ex05
 
     public static void main(String[] args) 
     {
-        int num = 0;
-        StringBuilder msg = new StringBuilder();
+        String str;
+        str = JOptionPane.showInputDialog("Informe um número: ");
+        /*
+         * Testa se string é igual a null (caso o usuário clique em "cancelar");
+         * Se for nula, atribui valor vazio ("");
+         */
+        str = (str == null) ? "" : str;
 
-        num = Integer.parseInt(JOptionPane.showInputDialog("Digite um número inteiro:"));
+        // Verifica se valor digitado é válido (se string não está vazia)
+        if(!str.isEmpty()) 
+        {
+            // Valor digitado é convertido para tipo inteiro;
+            int num = Integer.parseInt(str);
 
-        for(int i = 1; i <= 10; i++) 
-            msg.append(num).append(" * ").append(i).append(" = ").append(num * i).append("\n");
+            String saida = "TABUADA\n\n";
+            for (int i = 1; i <= 10; i++)
+                saida += String.format("%d x %d = %d\n", num, i, (num * i));
 
-        JOptionPane.showMessageDialog(null, msg);
+            JOptionPane.showMessageDialog(null, saida);
+        }
+        else 
+        {
+            JOptionPane.showMessageDialog(null,
+                    "Você precisa informar um número",
+                    "Erro",
+                    JOptionPane.ERROR_MESSAGE);
+        }
     }
 }
