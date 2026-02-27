@@ -1,3 +1,4 @@
+package Exercicios;
 import javax.swing.*;
 
 public class Ex02 
